@@ -17,16 +17,16 @@ singularity pull --name <<YOUR PREFERED IMAGE TAG>>.simg Docker://rhaast/brainch
 
 ## Running the pipeline
 
-It's mostly the same procedure to run the pipeline as the original. Inside your ToF or SWI data folder run the following command:
+It's mostly the same procedure to run the pipeline as the original. Inside your ToF or SWI data folder, run the following command:
 
 ```
 docker exec <<MOUNTING OPTIONS>> <<your image tag>> $PATH_TO/extract_vessels.sh <<PARAM1>> <<PARAM2>> <<PARAM3>>
 singularity exec <<MOUNTING OPTIONS>> <<your image tag>>.simg $PATH_TO/extract_vessels.sh <<PARAM1>> <<PARAM2>> <<PARAM3>>
 ```
 Where:
-- Param1: prefix of the data (ex: ToF.nii.gz -> ToF)
+- Param1: name of the file (ex: ToF.nii.gz -> ToF)
 - Param2: suffix of the data (ex: ToF.nii.gz -> .nii.gz)
-- Param3: Type of the data (ex: TOF or SWI or OTHER) -> SWI means dark vessels, ToF means bright vessels, OTHER won't skullstrip and skip some process and assume bright blood.
+- Param3: type of the data (ex: TOF or SWI or OTHER) -> SWI means dark vessels, ToF means bright vessels, OTHER won't skullstrip and skip some process and assume bright blood.
 - (Optional) Mounting options: e.g. -B <<LOCAL FOLDER CONTAING YOUR DATA>> ...
 
 So, for example:
